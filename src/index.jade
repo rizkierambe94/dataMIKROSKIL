@@ -83,656 +83,76 @@ html
               strong.white 3. SIM B2 Umum
                 |  -  untuk mengemudikan Kendaraan penarik atau Kendaraan Bermotor dengan menarik kereta tempelan atau gandengan
 
-
-
       section
-        h2.smaller 
-          | So why it's better than 
-          span.grunt  Grunt
-          | ?
-        div.align-left
-          p As the gulpjs.com says:
-          ul.nostyle
-            li.align-left
-              strong.white Speed
-              |  - tasks run concurrently
-            li.align-left
-              strong.white Efficiency
-              |  - no unnecessary temporary files
-            li.align-left
-              strong.white Simplicity
-              |  - Gulpfile is much cleaner
-
-
-
-      section.slide-intro(data-jt-chain="1")
-        .left.hide-when-1
-          a(href="http://gulpjs.com/")
-            img.logo(src="assets/images/gulp-2x.png", alt="GulpJS")
-        .right
-          //- h1 Gulp
-          h2.white.hide-when-1
-            | as a better 
-            a.grunt(href="http://gruntjs.com/") Grunt
-            | ?
-          small.subcaption.light.gray 
-            span.hide-when-1 Automate your 
-            span.show-when-1.first What is the 
-            span.pink-when-1 front-end development workflow 
-            span.show-when-1.second ?  
-            span.hide-when-1 fully!
-
-          .author-block.hide-when-1
-            .author-block-left
-              img.author-image(src="assets/images/myphoto.png")
-            .author-block-right
-              .author-name Jacek Tomaszewski
-              .author-caption
-                a(href="http://jtom.me") jtom.me
-
-      section.slide-workflow
-        h2.title
-          | Front-end development Workflow
-          small.title-caption
-            | (by 
-            a(href="https://speakerdeck.com/kristories/automating-your-workflow-with-gulp-dot-js") @kristories
-            | )
-        .row
-          .col.bullet
-            h4.col-title.pink Setup
-            ul
-              li Download
-              li Scaffold
-          .col.bullet
-            h4.col-title.pink Develop
-            ul
-              li Watch
-              li Lint
-              li Compile
-              li Test
-              li Livereload
-          .col.bullet
-            h4.col-title.pink Build
-            ul
-              li Compile
-              li Test
-              li Concat
-              li Minify
-              li Deploy
-
-      section
-        h2 A little bit of history
-        h3 of front-end development workflow
-
-      section
-        h2 2011
-        h3.bullet Setup phase = download & scaffold ...
-
-        .bullet.sticky
-          img.logo(src="assets/images/bower-screenshots/1.png")
-        .bullet.sticky
-          img.logo(src="assets/images/bower-screenshots/2.png")
-        .bullet.sticky
-          img.logo(src="assets/images/bower-screenshots/3.png")
-        .bullet.sticky
-          img.logo(src="assets/images/bower-screenshots/4.png")
-        .bullet.sticky
-          img.logo(src="assets/images/bower-screenshots/5.png")
-        .bullet.sticky
-          img.logo(src="assets/images/bower-screenshots/6.png")
-
-      section
-        pre.tolong
-          code.language-markup.
-            &lt;head&gt;
-              &lt;link type="text/css" rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.16.custom.css" /&gt; 
-              &lt;link type="text/css" rel="stylesheet" href="css/jquery.lightbox-0.5.css" /&gt; 
-              &lt;link type="text/css" rel="stylesheet" href="css/main.css" /&gt;
-
-              &lt;script type="text/javascript" src="js/jquery-1.6.2.min.js"&gt;&lt;/script&gt;
-              &lt;script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"&gt;&lt;/script&gt;
-              &lt;script type="text/javascript" src="js/jquery.jplayer.min.js"&gt;&lt;/script&gt;
-              &lt;script type="text/javascript" src="js/jquery.lightbox-0.5.js"&gt;&lt;/script&gt;
-              &lt;script type="text/javascript" src="js/jquery.cycle.all.min.js"&gt;&lt;/script&gt;
-              &lt;script type="text/javascript" src="js/jquery.mousewheel.js"&gt;&lt;/script&gt;
-              &lt;script type="text/javascript" src="js/jquery.jscrollpane.min.js"&gt;&lt;/script&gt;
-              &lt;script type="text/javascript" src="js/jquery.lightbox-0.5.js"&gt;&lt;/script&gt;
-              &lt;script type="text/javascript" src="js/main.js"&gt;&lt;/script&gt;
-            &lt;head/&gt;
-        h3.smaller
-          .bullet In 2011, we didn't need to compile anything
-          .bullet 
-            span.pink Minify 
-            | and 
-            span.pink concatenation
-            | ? We can do it manually
-          .bullet.bullet-hide-if-not-current.sticky
-            img.logo(src="assets/images/bower-screenshots/7.png")
-          .bullet
-            span.pink Deployment? 
-            | Via FTP.
-          .bullet.bullet-hide-if-not-current.sticky
-            img.logo(src="assets/images/bower-screenshots/8.gif")
-          .bullet
-            span.pink Testing? 
-            | Waat? It works. If not, I test it manually.
-        
-      section.facepalm(data-bespoke-state='emphatic')
-
-      section
-        h3 
-          | Finally, 
-          span.pink in 2012
-          | , we met these guys:
-        .logos
-          a(href="https://github.com/bower/bower")
-            img(src="assets/images/bower.png", alt="Bower")
-
-          a(href="http://yeoman.io/") 
-            img(src="assets/images/yeoman-logo.a053.png", alt="Yeoman")
-
-          a(href="http://gruntjs.com/") 
-            img(src="assets/images/grunt-logo.png", alt="Grunt")
-
-      section
-        .row.bullet
-          .left
-            a(href="https://github.com/bower/bower")
-              img.logo.logo-small(src="assets/images/bower.png", alt="Bower")
-          .right.margin-left
-            h2 Bower
-            h3.smaller to handle project's dependencies
-
-        pre.bullet.small.language-
-          code.
-            <span class="gold">$</span> npm install -g bower
-
-            <span class="gold">$</span> bower install --save jquery
-            <span class="gold">$</span> bower install --save jquery-ui
-            <span class="gold">$</span> bower install --save jplayer
-            <span class="gold">$</span> bower install --save lightbox
-            <span class="gold">$</span> bower install --save jquery.cycle
-            <span class="gold">$</span> bower install --save jquery.mousewheel
-            <span class="gold">$</span> bower install --save jquery.jscrollpane
-
-      section
-        .row.bullet
-          .left
-            a(href="http://yeoman.io/") 
-              img.logo.logo-small(src="assets/images/yeoman-logo.a053.png", alt="Yeoman")
-          .right.margin-left
-            h2 Yeoman
-            h3.smaller to bootstrap and scaffold projects
-  
-        pre.bullet.small.language-
-          code.
-            <span class="gold">$</span> npm install -g yo generator-bespoke
-            <span class="gold">$</span> yo bespoke
-
-            [?] What is the title of your presentation? Hello World
-            [?] Would you like to use a pre-made theme? Yes
-            [?] Would you like bullet lists? Yes
-            ...
-               create gulpfile.js
-               create README.md
-               create .bowerrc
-               create src/index.jade
-               create src/scripts/main.js
-            ...
-
-            I'm all done. 
-            Run `gulp serve` to run HTTP server on localhost:8080 and open your presentation!
-
-      section
-        .row.bullet
-          .left
-            a(href="http://gruntjs.com/") 
-              img.logo.logo-small(src="assets/images/grunt-logo.png", alt="Grunt")
-          .right.margin-left
-            h2 Grunt
-            h3.smaller to automate development
-
-        pre.bullet.small.language-
-          code.
-            <span class="gold">$</span> grunt
-
-            Running "<span class="gray">jshint</span>" (jshint) task
-            <span class="green">>></span> 47 file lint free.
-
-            Running "<span class="gray">qunit</span>" (qunit) task
-            Testing test/tiny-pubsub.html....OK
-            <span class="green">>></span> 4 assertions passed (23ms)
-
-            Running "<span class="gray">clean:dist</span>" (clean) task
-            Cleaning "dist"...OK
-
-            Running "<span class="gray">concat:dist</span>" (concat) task
-            File "dist/ba-tiny-pubsub.js" created.
-
-            Running "<span class="gray">uglify:dist</span>" (uglify) task
-            File "dist/ba-tiny-pubsub.min.js" created.
-            Compressed size: <span class="green">119</span> bytes gzipped (<span class="green">185</span> bytes minified).
-             
-            <span class="green">Done, without errors.</span>
-             
-
-      section
-        h3 Frontend workflow today
-        pre
-          code.
-            <span class="gold">$</span> yo webapp
-            <span class="gold">$</span> bower install --save angular
-            <span class="gold">$</span> bower install --save angular-resource
-
-
-          code.smaller.language-javascript.
-            // gruntfile.js
-            grunt.initConfig({
-              concat: {
-                dist: {
-                  src: [
-                    'vendor/bower/angular/angular.js', 
-                    'vendor/bower/angular-resource/angular-resource.js'
-                  ],
-                  dest: 'dist/js/vendor.js'
-                }
-              }
-            });
-
-      section
-        h2 Grunt plugins allow us to:
-        .row
-          .col
-            ul
-              li.bullet minify js, css, http files
-              li.bullet compile other syntaxes (coffeescript, sass, jade, stylus, etc.)
-              li.bullet hint for errors
-              li.bullet watch files for changes
-              li.bullet run a HTTP server
-              li.bullet run tests
-          .col
-            ul
-              li.bullet add license info
-              li.bullet compile HTML templates into JS
-              li.bullet use sourcemaps
-              li.bullet compress images
-              li.bullet move/create somes files, directories, symlinks
-              li.bullet deploy to server
-
-      section
-        h2 This was fine.
-        h3 But brought as to ..
-
-      section.slide-spaghetti
-        .bullet
-        .bullet.bullet-with-code
-          h4.title ... big bunch of spaghetti code.
-          pre.language-javascript.toolong(data-src="assets/examples/lineman_gruntfile.js")
-        .bullet
-
-      section
-        h2 Grunt's issues
-        ul
-          li.bullet
-            span.pro Grunt config file is divided by plugins 
-            span.con (not modules / features)
-
-          li.bullet.relative
-            span.pro Generates a lot of tmp files, 
-            span.con which shouldn't be written to disc anyway and could be handled in memory
-            .example 
-              ol
-                li compile .coffee to .js
-                li concat .js files into main.js
-                li minify main.js to main.min.js
-              strong 1 task, 3 plugins, 2 sets of temporary files
-            br
-            a(href="http://slides.com/contra/gulp#/10")
-              img.autoresize(src="assets/images/oeCGJUS.png")
-
-            .image-caption
-              | image by: 
-              a(href="contra/gulp") contra/gulp
-
-      section.slide-alternative
-
-      section.slide-unix-commands
-        h3 What if we could write tasks as stream-based commands on unix?
-
-        .relative.extended-width
-          .bullet.bullet-hide-if-not-current.absolute.align-left
-            a(href="http://slides.com/contra/gulp#/9")
-            img.autoresize(src="assets/images/B0B77QN.png")
-
-            .image-caption
-              | image by: 
-              a(href="contra/gulp") contra/gulp
-
-          .bullet.bullet-hide-if-not-current.absolute.align-left
-            h4.smaller.pink Example of Unix commands
-            ol
-              li Find all files in this directory
-              li Get only those with word "grunt"
-              li Delete them
-            pre.language-
-              code.
-                <span class="gold">$</span> find . | grep -l "grunt" | xargs -I {} rm -rf {}
-
-          .bullet.bullet-hide-if-not-current.absolute.align-left
-            h4.smaller.pink Example of "Imaginary front-end command"
-            ol
-              li Find all *.coffee files, 
-              li Compile them to JS, 
-              li Send through ngMinify and UglifyJS (using sourcemaps), 
-              li Concat into one file,
-              li Finally save into one final file: "dist/js/main.js".
-            pre.language-
-              code.
-                <span class="gold">$</span> find src -name '*.coffee' | coffee | ng-minify | \
-                  uglify --sourcemaps=true | concat > dist/js/main.js
-
-      section(data-bespoke-state='emphatic')
-        a(href="http://gulpjs.com/") 
-          img.logo(src="assets/images/gulp-2x.png", alt="GulpJS")
-
-      section.slide-gulp-grunt-breakdown(data-jt-chain="6")
-        .row.row-main
-          .col
-            .row
-              div
-                a(href="http://gruntjs.com/") 
-                  img.logo.logo-small(src="assets/images/grunt-logo.png", alt="Grunt")
-              div
-                h2.smaller.grunt Grunt
-                h3.white.smaller Configuration over code
-            ul
-              li Configure plugins separately
-              li You have to define exact order of tasks
-              li 
-                | Tasks can be run concurrently, if you configure 
-                a(href="https://github.com/sindresorhus/grunt-concurrent") grunt-concurrent
-                |  plugin
-
-          .col
-            .row
-              .margin-right
-                a(href="http://gulpjs.com/") 
-                  img.logo.logo-small(src="assets/images/gulp-2x.png", alt="GulpJS")
-              div
-                h2.smaller Gulp
-                h3.white.smaller Code over configuration
-            ul
-              li Manually write your tasks, using a stream or promise
-              li Gulp will take care of your tasks dependencies itself
-              li Tasks are run concurrently
-
-      section
-        h2.smaller
-          | Gulp task example 
-          a.gray(href="http://markgoodyear.com/2014/01/getting-started-with-gulp/") (source)
-        pre.language-javascript
-          code.
-            gulp.task('scripts', function() {
-              return gulp.src('src/scripts/**/*.js') // <-- Read from FS
-                .pipe(jshint('.jshintrc'))
-                .pipe(concat('main.js'))
-                .pipe(gulp.dest('dist/assets/js')) // <-- Write to FS
-                .pipe(rename({suffix: '.min'}))
-                .pipe(uglify())
-                .pipe(gulp.dest('dist/assets/js')) // <-- Write to FS
-                .pipe(livereload(server));
-            });
-
-      section
-        h2.bullet.smaller Gulp API
-        p is just four functions
-        ul.bullets
-          li 
-            code gulp.task(name, [deps,], fn)
-            .description define a task with optional dependencies.
-          li 
-            code gulp.src(glob)
-            .description create a stream from given file system glob.
-          li 
-            code gulp.dest(folder)
-            .description save files from a stream to given directory.
-          li 
-            code gulp.watch(glob, tasks)
-            .description run a task when one of the globbed files is changed.
-
-        h2.smaller
-          span.pink.bullet That's it! 
-          //- span.white.bullet Examples?
-      section
-        h2.smaller
-          code.
-            gulp.task(name, [deps,], fn)
-
-        .relative.extended-width(style="height:15em")
-          pre.language-javascript.bullet.bullet-hide-if-not-current.sticky
-            code.
-              gulp.task("name", ["dependency-task"], function(done) {
-                // do sth ...
-                done();
-              });
-
-          pre.language-javascript.bullet.bullet-hide-if-not-current.sticky
-            code.
-              gulp.task("build", ["compile-js", "compile-css"]);
-
-          pre.language-javascript.bullet.bullet-hide-if-not-current.sticky
-            code.
-              gulp.task("default", ["build", "server", "watch"]);
-
-      section
-        h2.smaller
-          code gulp.src(glob)
-
-        .relative.extended-width(style="height:15em")
-          pre.language-javascript.bullet.bullet-hide-if-not-current.sticky
-            code.
-              gulp.src(["app/js/**/*.js", "assets/js/**/*.js"])
-
-          pre.language-javascript.bullet.bullet-hide-if-not-current.sticky
-            code.
-              gulp.task("validate-js", function(){
-                return gulp.src("app/js/**/*.js")
-                  .pipe(jshint());
-              });
-
-      section
-        h2.smaller
-          code gulp.dest(glob)
-
-        .relative.extended-width(style="height:15em")
-          pre.language-javascript.bullet.bullet-hide-if-not-current.sticky
-            code.
-              gulp.dest("./dist/js/")
-
-          pre.language-javascript.bullet.bullet-hide-if-not-current.sticky
-            code.
-              gulp.task("compile-js", function(){
-                return gulp.src("app/js/**/*.js")
-                  .pipe(concat("app.js"))
-                  .pipe(gulp.dest("./dist/js/"));
-              });
-
-      section
-        h2.smaller
-          code gulp.watch(glob, tasks)
-
-        .relative.extended-width(style="height:15em")
-          pre.language-javascript.bullet.bullet-hide-if-not-current.sticky
-            code.
-              gulp.task("watch", function(){
-                gulp.watch("app/js/**/*.js", ["validate-js", "compile-js"]);
-              });
-
-      section
-        h2 How to start?
-        ol.bullets
-          li 
-            p Install Node & Gulp
-            a.block.pink(href="http://nodejs.org/") http://nodejs.org/
-            a.block.pink(href="http://gulpjs.com/") http://gulpjs.com/
-          li 
-            p Install some Gulp plugins
-            a.block.pink(href="http://gulpjs.com/plugins/") http://gulpjs.com/plugins/
-          li
-            p
-              | Create 
-              span.gray gulpfile.js 
-              | and code it
-          li 
-            | Profit!
-
-      section
-        pre.language-
-          code.bullet.
-            <span class="gray"># Enter the project's directory</span>
-            <span class="gold">$</span> cd myapp
-
-
-          code.bullet.
-            <span class="gray"># Create package.json file (if nonexistent yet)</span>
-            <span class="gold">$</span> npm init
-
-
-          code.bullet.
-            <span class="gray"># Install gulp & its' plugins locally</span>
-            <span class="gray"># (and add them to package.json)</span>
-            <span class="gold">$</span> npm install --save-dev gulp gulp-sass gulp-coffee
-
-
-          code.bullet.
-            <span class="gray"># Code the gulpfile.js file (but learn Gulp's API first)</span>
-            <span class="gold">$</span> vim gulpfile.js
-
-
-          code.bullet.
-            <span class="gray"># Finally, run a gulp's task!</span>
-            <span class="gold">$</span> gulp build
-
-      section
-        pre.language-javascript
-          code.bullet.
-            var gulp = require("gulp");
-
-            gulp.task("build", function(){
-              // TODO
-            });
-
-            gulp.task("watch", function(){
-              // TODO  
-            });
-
-            gulp.task("default", ["build", "watch"]);
-
-        h3.smaller gulpfile.js
-
-      section
-        pre.language-javascript
-          code.bullet.
-            var paths = {
-              scripts: "app/js/**/*.coffee",
-              stylesheets: "app/css/**/*.sass"
-            };
-
-            gulp.task("build", ["compile-js", "compile-css"]);
-
-            gulp.task("watch", function(){
-              gulp.watch(paths.scripts, ["compile-js"]);
-              gulp.watch(paths.stylesheets, ["compile-css"]);
-            });
-
-        h3.smaller gulpfile.js
-
-      section
-        pre.language-javascript
-          code.bullet.
-            var sass = require("gulp-sass");
-
-            gulp.task("compile-css", function(){
-              return gulp.src(paths.stylesheets)
-                .pipe(sass())
-                .pipe(gulp.dest("build/css/"));
-            });
-
-        h3.smaller gulpfile.js
-
-      section
-        pre.language-javascript
-          code.bullet.
-            var coffee = require("gulp-coffee");
-
-            gulp.task("compile-js", function(){
-              return gulp.src(paths.scripts)
-                .pipe(coffee())
-                .pipe(gulp.dest("build/js/"));
-            });
-
-        h3.smaller gulpfile.js
-
-      section
-        h2 Live demo
-        a(href="https://github.com/jtomaszewski/ionic-cordova-gulp-seed") jtomaszewski/ionic-cordova-gulp-seed
-
-      section
-        h2.smaller 
-          | So why it's better than 
-          span.grunt  Grunt
-          | ?
-        div.align-left
-          p As the gulpjs.com says:
-          ul.nostyle
-            li.align-left
-              strong.white Speed
-              |  - tasks run concurrently
-            li.align-left
-              strong.white Efficiency
-              |  - no unnecessary temporary files
-            li.align-left
-              strong.white Simplicity
-              |  - Gulpfile is much cleaner
-
-      section
-        h2 Gulp-Links
-        .align-left
-          h4 Blog posts
-          ul
-            li
-              a(href="http://www.100percentjs.com/just-like-grunt-gulp-browserify-now/") And just like that Grunt and RequireJS are out, it’s all about Gulp and Browserify now
-            li
-              a(href="http://markgoodyear.com/2014/01/getting-started-with-gulp/") Getting started with Gulp
-            li
-              a(href="http://jmperezperez.com/gulp-js/") Gulp.js, an alternative to Grunt.js
-            li
-              a(href="https://blog.engineyard.com/2014/frontend-dependencies-management-part-2") Managing Frontend Dependencies & Deployment Part 2: Gulp
-            li
-              a(href="https://speakerdeck.com/addyosmani/automating-front-end-workflow") Automating Front-end Workflow
-            li
-              a(href="https://speakerdeck.com/kristories/automating-your-workflow-with-gulp-dot-js") Automating your workflow with gulp.js
-            li
-              a(href="https://speakerdeck.com/bermonpainter/front-end-workflows-with-gulp") Front-end workflows with Gulp
-
-      section
-        h2 Gulp-Links
-        .align-left
-          h4 Other slideshows
-          ul
-            li
-              a(href="http://markdalgleish.github.io/presentation-build-wars-gulp-vs-grunt/#1") Build Wars: Gulp vs Grunt
-            li
-              a(href="http://murphyrandle.github.io/AGulpOfGulp/#/") A gulp of Gulp
-            li
-              a(href="http://slides.com/contra/gulp") Gulp - the streaming build system
+        h2 Simulasi Pembuatan SIM C
           br
-          h4 Other
-          ul
-            li
-              a(href="http://gulpfiction.divshot.io/") GulpFiction - web-browser UI for creating your gulpfile.js !
-            li
-              a(href="https://www.youtube.com/watch?v=6Jhgkp67GxI") Gulp This Screencast
+          p Simulasi pembuatan SIM C merupakan sebuah game sederhana yang memberikan sebuah pengetahuan tentang tata cara pembuatan SIM C. Simulasi ini bukan merupakan test drive, tetapi hanya untuk membantu masyarakat yang belum mengetahui cara membuat SIM C.
+
+      section
+        h2 Tujuan
+          ul.nostyle
+            li.align-left
+              strong.white 
+            li.align-left
+              strong.white 1. Mendapatkan gambaran secara global mengenai cara membuat sim resmi
+            li.align-left
+              strong.white 2. Memberikan pemahaman tentang membuat sim baru
+            li.align-left
+              strong.white 3. memberikan gambaran umum tentang tahapan – tahapan dan syarat- syarat membuat SIM C
+
+      section
+        h2 Tools yang digunakan
+          br
+          p RPG VX Maker ACE
+
+      section
+        h2 Persyaratan Pembuatan SIM
+        div.align-left
+          p A. Usia
+          ul.nostyle
+            li.align-left
+              strong.white
+            li.align-left
+              strong.white 1. SIM A Pemohon Usia 18 tahun
+            li.align-left
+              strong.white 2. SIM B I dan B II pemohon 20 tahun
+            li.align-left
+              strong.white 3. SIM C dan D pemohon 17 tahun
+            li.align-left
+              strong.white 4. SIM Umum pemohon usia 21 tahun
+          p B. Pas Photo
+          p C. KTP Asli & Foto Copy 4 lembar
+
+      section
+        h2 Biaya Pembuatan SIM
+        div.align-left
+          p Sesuai dengan Peraturan Pemerintah No. 50 Tahun 2010 tentang PNBP pada Polri, biaya pembuatan SIM baru adalah sebagai berikut:
+          ul.nostyle
+            li.align-left
+              strong.white
+            li.align-left
+              strong.white 1. SIM A: Rp120.000
+            li.align-left
+              strong.white 2. SIM B1 & B2: Rp120.000
+            li.align-left
+              strong.white 3. SIM C: Rp100.000
+            li.align-left
+              strong.white 4. SIM D: Rp50.000
+          p Biaya Tambahan:
+          ul.nostyle
+            li.align-left
+              strong.white
+            li.align-left
+              strong.white 1. Asuransi Rp30.000
+            li.align-left
+              strong.white 2. Biaya Surat Keterangan Uji Klinik Pengemudi (SKUKP) untuk SIM B1, B2, dan SIM Umum Rp50.000
+
+
+
+
+
+
+
 
     // build:js scripts/scripts.js
     script(src='bower_components/bespoke.js/dist/bespoke.min.js')
